@@ -10,7 +10,7 @@
  * Plugin Name:       Space Lover
  * Plugin URI:        https://github.com/sparanoid/space-lover
  * Description:       Magically add an extra space between Chinese / Japanese characters and English letters / numbers / common punctuation marks
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Tunghsiao Liu
  * Author URI:        http://sparanoid.com/
  * Text Domain:       space-lover
