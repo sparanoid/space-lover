@@ -4,7 +4,7 @@ Donate link: http://sparanoid.com/donate/
 Tags: comments, content, javascript, chinese, china, copywriting
 Requires at least: 3.5.1
 Tested up to: 3.9
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,9 @@ Yep.
 
 == Changelog ==
 
+= 1.0.2 =
+* Fix: Remove actual assets imagess
+
 = 1.0.1 =
 * Fix: Add the missing assets files
 
@@ -69,6 +72,9 @@ Yep.
 * First release
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+* Fix: Remove actual assets images
 
 = 1.0.1 =
 * Fix: Add the missing assets files
