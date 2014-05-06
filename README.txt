@@ -4,7 +4,7 @@ Donate link: http://sparanoid.com/donate/
 Tags: comments, content, javascript, chinese, china, copywriting
 Requires at least: 3.5.1
 Tested up to: 3.9
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,9 @@ Yep.
 
 == Changelog ==
 
+= 1.0.4 =
+* Update: Jetpack Infinite Scroll support
+
 = 1.0.3 =
 * Update: New copywriting
 
@@ -77,6 +80,9 @@ Yep.
 * First release
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+* Update: Jetpack Infinite Scroll support
 
 = 1.0.3 =
 * Update: New copywriting

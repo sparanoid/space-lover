@@ -28,7 +28,7 @@ class Space_Lover {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.3';
+	const VERSION = '1.0.4';
 
 	/**
 	 * The variable name is used as the text domain when internationalizing strings
