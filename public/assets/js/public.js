@@ -11,4 +11,8 @@
 
 window.onload = function(){
   pangu.page_spacing();
+
+  jQuery(document.body).on("post-load", function() {
+    pangu.page_spacing();
+  });
 };
