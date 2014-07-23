@@ -64,14 +64,14 @@ Plase Note: Your server must have [UTF-8 Mode](http://php.net/manual/en/regexp.r
 
 Yep.
 
-= Differences between Space Lover and Space Lover Lite?
+= Differences between Space Lover and Space Lover Lite? =
 
 - The new Space Lover (since v1.0.5) uses PHP regex to replace output contents.
 - Space Lover Lite just inserts one script to dynamic add spaces.
 - Space Lover changes your post output in your themes, RSS output
 - Space Lover Lite only changes what you see, the post output is untouched, so you'll still get original post contents in your RSS feeds, however this method is slightly safer than Space Lover.
 
-= Space Lover 與 Space Lover Lite 的區別？
+= Space Lover 與 Space Lover Lite 的區別？ =
 
 - 新版 Space Lover（v1.0.5）使用 PHP 的正則替換文章的輸出內容
 - Space Lover Lite 只插入 JavaScript 腳本，動態添加空格
