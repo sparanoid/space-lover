@@ -10,7 +10,7 @@
  * Plugin Name:       Space Lover
  * Plugin URI:        http://sparanoid.com/work/space-lover/
  * Description:       Magically add an extra space between Chinese / Japanese characters and English letters / numbers / common punctuation marks
- * Version:           1.0.5
+ * Version:           1.0.6
  * Author:            Tunghsiao Liu
  * Author URI:        http://sparanoid.com/
  * Text Domain:       space-lover
@@ -45,9 +45,12 @@ $sl_work_tags = array(
 // http://www.fileformat.info/info/unicode/category/Pe/list.htm
 // https://github.com/sparanoid/chinese-copywriting-guidelines
 // https://github.com/huacnlee/auto-correct
+// http://stackoverflow.com/questions/12493128/
+// http://regex101.com/r/hU3wD2/6
 function space_lover_prepare($content) {
-  $content = preg_replace('~(\p{Han})([a-zA-Z0-9\p{Ps}])~u', '\1 \2', $content);
-  $content = preg_replace('~([a-zA-Z0-9\p{Pe}])(\p{Han})~u', '\1 \2', $content);
+  // $content = strip_tags($content);
+  $content = preg_replace('~(\p{Han})([a-zA-Z0-9\p{Ps}])(?![^<]*>)~u', '\1 \2', $content);
+  $content = preg_replace('~([a-zA-Z0-9\p{Pe}])(\p{Han})(?![^<]*>)~u', '\1 \2', $content);
   $content = preg_replace('~([!?‽:;,.])(\p{Han})~u', '\1 \2', $content);
   // $content = preg_replace('~\![ ]?(\p{Han})~u', '！\1', $content);
   // $content = preg_replace('~\:[ ]?(\p{Han})~u', '：\1', $content);
