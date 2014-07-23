@@ -8,9 +8,9 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Space Lover
- * Plugin URI:        https://github.com/sparanoid/space-lover
+ * Plugin URI:        http://sparanoid.com/work/space-lover/
  * Description:       Magically add an extra space between Chinese / Japanese characters and English letters / numbers / common punctuation marks
- * Version:           1.0.4
+ * Version:           1.0.5
  * Author:            Tunghsiao Liu
  * Author URI:        http://sparanoid.com/
  * Text Domain:       space-lover
@@ -20,43 +20,49 @@
  * GitHub Plugin URI: https://github.com/sparanoid/space-lover
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+$sl_work_tags = array(
+  'the_title',             // http://codex.wordpress.org/Function_Reference/the_title
+  'the_content',           // http://codex.wordpress.org/Function_Reference/the_content
+  'the_excerpt',           // http://codex.wordpress.org/Function_Reference/the_excerpt
+  // 'list_cats',          Deprecated. http://codex.wordpress.org/Function_Reference/list_cats
+  'single_post_title',     // http://codex.wordpress.org/Function_Reference/single_post_title
+  'comment_author',        // http://codex.wordpress.org/Function_Reference/comment_author
+  'comment_text',          // http://codex.wordpress.org/Function_Reference/comment_text
+  // 'link_name',          Deprecated.
+  // 'link_notes',         Deprecated.
+  'link_description',      // Deprecated, but still widely used.
+  'bloginfo',              // http://codex.wordpress.org/Function_Reference/bloginfo
+  'wp_title',              // http://codex.wordpress.org/Function_Reference/wp_title
+  'term_description',      // http://codex.wordpress.org/Function_Reference/term_description
+  'category_description',  // http://codex.wordpress.org/Function_Reference/category_description
+  'widget_title',          // Used by all widgets in themes
+  'widget_text'            // Used by all widgets in themes
+  );
+
+
+// http://unicode.org/reports/tr44/
+// http://php.net/manual/en/regexp.reference.unicode.php
+// http://www.fileformat.info/info/unicode/category/Pe/list.htm
+// https://github.com/sparanoid/chinese-copywriting-guidelines
+// https://github.com/huacnlee/auto-correct
+function space_lover_prepare($content) {
+  $content = preg_replace('~(\p{Han})([a-zA-Z0-9\p{Ps}])~u', '\1 \2', $content);
+  $content = preg_replace('~([a-zA-Z0-9\p{Pe}])(\p{Han})~u', '\1 \2', $content);
+  $content = preg_replace('~([!?‽:;,.])(\p{Han})~u', '\1 \2', $content);
+  // $content = preg_replace('~\![ ]?(\p{Han})~u', '！\1', $content);
+  // $content = preg_replace('~\:[ ]?(\p{Han})~u', '：\1', $content);
+  // $content = preg_replace('~\;[ ]?(\p{Han})~u', '；\1', $content);
+  // $content = preg_replace('~\?[ ]?(\p{Han})~u', '？\1', $content);
+  // $content = preg_replace('~\,[ ]?(\p{Han})~u', '，\1', $content);
+  // $content = preg_replace('~\.[ ]?(\p{Han})~u', '。\1', $content);
+  // $content = preg_replace('~\+[ ]?(\p{Han})~u', '＋\1', $content);
+  // $content = preg_replace('~\=[ ]?(\p{Han})~u', '＝\1', $content);
+  // $content = preg_replace('~\&[ ]?(\p{Han})~u', '＆\1', $content);
+  $content = preg_replace('~[ ]*([「」『』（）〈〉《》【】〔〕〖〗〘〙〚〛])[ ]*~u', '\1', $content);
+  return $content;
 }
 
-/*----------------------------------------------------------------------------*
- * Public-Facing Functionality
- *----------------------------------------------------------------------------*/
-
-require_once( plugin_dir_path( __FILE__ ) . 'public/class-space-lover.php' );
-
-/*
- * Register hooks that are fired when the plugin is activated or deactivated.
- * When the plugin is deleted, the uninstall.php file is loaded.
- */
-register_activation_hook( __FILE__, array( 'Space_Lover', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Space_Lover', 'deactivate' ) );
-
-add_action( 'plugins_loaded', array( 'Space_Lover', 'get_instance' ) );
-
-/*----------------------------------------------------------------------------*
- * Dashboard and Administrative Functionality
- *----------------------------------------------------------------------------*/
-
-/*
- * If you want to include Ajax within the dashboard, change the following
- * conditional to:
- *
- * if ( is_admin() ) {
- *   ...
- * }
- *
- * The code below is intended to to give the lightest footprint possible.
- */
-// if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
-//
-//   require_once( plugin_dir_path( __FILE__ ) . 'admin/class-space-lover-admin.php' );
-//   add_action( 'plugins_loaded', array( 'Space_Lover_Admin', 'get_instance' ) );
-//
-// }
+foreach ( $sl_work_tags as $sl_work_tag ) {
+  add_filter($sl_work_tag, 'space_lover_prepare');
+}
+?>

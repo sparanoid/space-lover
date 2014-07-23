@@ -1,10 +1,10 @@
 === Space Lover ===
 Contributors: Sparanoid
 Donate link: http://sparanoid.com/donate/
-Tags: comments, content, javascript, chinese, china, copywriting
+Tags: comments, content, chinese, china, copywriting
 Requires at least: 3.5.1
-Tested up to: 3.9
-Stable tag: 1.0.4
+Tested up to: 4.0
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,13 +12,13 @@ Magically add an extra space between Chinese / Japanese characters and English l
 
 == Description ==
 
-This plugin uses [vinta/paranoid-auto-spacing](https://github.com/vinta/paranoid-auto-spacing) to magically add an extra space between Chinese / Japanese characters and English letters / numbers / common punctuation marks.
-
 A must-have plugin if you're running a Chinese / Japanese blog. This plugin also works fine with multisite enabled WordPress (aka. WordPress Mu).
 
 No options, no additional database inserts, no stupid banners and shitty ads, install and go.
 
 你客戶／合作夥伴不光文案寫的爛，而且還不會排版？Space Lover 可以幫到你。它會神奇的在中文、日文和英文、數字、符號之間自動加入空白，讓客戶網站的文案、文章看上去規範整潔。
+
+無選項、無 MySQL 插入，無廣告，安裝即用。
 
 覺得這招治標不治本？也可以試試 [sparanoid/chinese-copywriting-guidelines](https://github.com/sparanoid/chinese-copywriting-guidelines)，讓你的客戶／合作夥伴學會如何正確的排版。
 
@@ -33,6 +33,8 @@ After:
 == Installation ==
 
 This section describes how to install the plugin and get it working.
+
+Plase Note: Your server must have [UTF-8 Mode](http://php.net/manual/en/regexp.reference.unicode.php) enabled in order to use this plugin.
 
 = Using The WordPress Dashboard =
 
@@ -62,7 +64,24 @@ This section describes how to install the plugin and get it working.
 
 Yep.
 
+= Differences between Space Lover and Space Lover Lite?
+
+- The new Space Lover (since v1.0.5) uses PHP regex to replace output contents.
+- Space Lover Lite just inserts one script to dynamic add spaces.
+- Space Lover changes your post output in your themes, RSS output
+- Space Lover Lite only changes what you see, the post output is untouched, so you'll still get original post contents in your RSS feeds, however this method is slightly safer than Space Lover.
+
+= Space Lover 與 Space Lover Lite 的區別？
+
+- 新版 Space Lover（v1.0.5）使用 PHP 的正則替換文章的輸出內容
+- Space Lover Lite 只插入 JavaScript 腳本，動態添加空格
+- Space Lover 會修改所有文章的輸出形式，例如用戶所看到的頁面，RSS 輸出等
+- Space Lover Lite 只會改變您在網站上看到的形式，而文章本身的內容是沒有被修改過的，所以使用此擴展時，RSS 的輸出並不會產生變化，唯一的優點是，這種方法與 Space Lover 比較相對安全，不會有內容被錯誤替換的可能。
+
 == Changelog ==
+
+= 1.0.5 =
+* Update: To provide better result, this plugin no longer uses [vinta/paranoid-auto-spacing](https://github.com/vinta/paranoid-auto-spacing) to add spaces, now it uses PHP regex rules to replace contents ouput.
 
 = 1.0.4 =
 * Update: Jetpack Infinite Scroll support
