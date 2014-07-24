@@ -4,7 +4,7 @@ Donate link: http://sparanoid.com/donate/
 Tags: comments, content, chinese, china, copywriting
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,9 @@ Yep.
 
 == Changelog ==
 
+= 1.0.8 =
+* Update: Add spaces between links
+
 = 1.0.7 =
 * Fix: Better readme
 
@@ -109,6 +112,9 @@ Yep.
 * First release
 
 == Upgrade Notice ==
+
+= 1.0.8 =
+* Update: Add spaces between links
 
 = 1.0.7 =
 * Fix: Better readme
