@@ -8,11 +8,11 @@ Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Magically add an extra space between Chinese / Japanese characters and English letters / numbers / common punctuation marks
+Magically add an extra space between Chinese characters and English letters / numbers / common punctuation marks
 
 == Description ==
 
-A must-have plugin if you're running a Chinese / Japanese blog. This plugin also works fine with multisite enabled WordPress (aka. WordPress Mu).
+A must-have plugin if you're running a Chinese blog. This plugin also works fine with multisite enabled WordPress (aka. WordPress Mu).
 
 No options, no additional database inserts, no stupid banners and shitty ads, install and go.
 
