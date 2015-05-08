@@ -3,8 +3,8 @@ Contributors: Sparanoid
 Donate link: http://sparanoid.com/donate/
 Tags: comments, content, chinese, china, copywriting
 Requires at least: 3.5.1
-Tested up to: 4.1
-Stable tag: 1.0.9
+Tested up to: 4.2.2
+Stable tag: 1.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,9 @@ Yep.
 
 == Changelog ==
 
+= 1.0.10 =
+* Compatibility check for 4.2.2, nothing new, just bump version to tell everyone this plugin still works.
+
 = 1.0.9 =
 * Compatibility check for 4.1 and 4.1 alpha, nothing new, just bump version to tell everyone this plugin still works.
 
@@ -115,6 +118,9 @@ Yep.
 * First release
 
 == Upgrade Notice ==
+
+= 1.0.10 =
+* Compatibility check for 4.2.2, nothing new, just bump version to tell everyone this plugin still works.
 
 = 1.0.9 =
 * Compatibility check for 4.1 and 4.1 alpha, nothing new, just bump version to tell everyone this plugin still works.
