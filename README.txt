@@ -126,7 +126,7 @@ Yep.
 == Upgrade Notice ==
 
 = 1.0.12 =
-* Compatibility check for 4.3, nothing new, just bump version to tell everyone this plugin still works.
+* Compatibility check for 4.4, nothing new, just bump version to tell everyone this plugin still works.
 
 = 1.0.11 =
 * Compatibility check for 4.3, nothing new, just bump version to tell everyone this plugin still works.
