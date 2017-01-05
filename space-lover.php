@@ -10,7 +10,7 @@
  * Plugin Name:       Space Lover
  * Plugin URI:        http://sparanoid.com/work/space-lover/
  * Description:       Magically add an extra space between Chinese characters and English letters / numbers / common punctuation marks
- * Version:           1.0.14
+ * Version:           1.0.15
  * Author:            Tunghsiao Liu
  * Author URI:        http://sparanoid.com/
  * Text Domain:       space-lover

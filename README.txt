@@ -4,7 +4,7 @@ Donate link: http://sparanoid.com/donate/
 Tags: comments, content, chinese, china, copywriting
 Requires at least: 3.5.1
 Tested up to: 4.7
-Stable tag: 1.0.14
+Stable tag: 1.0.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,9 @@ Yep.
 
 == Changelog ==
 
+= 1.0.15 =
+* Update assets.
+
 = 1.0.14 =
 * Compatibility check for 4.6 and 4.7, nothing new, just bump version to tell everyone this plugin still works.
 
@@ -130,6 +133,9 @@ Yep.
 * First release
 
 == Upgrade Notice ==
+
+= 1.0.15 =
+* Update assets.
 
 = 1.0.14 =
 * Compatibility check for 4.6 and 4.7, nothing new, just bump version to tell everyone this plugin still works.
