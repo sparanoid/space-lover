@@ -1,10 +1,10 @@
 === Space Lover ===
 Contributors: Sparanoid
-Donate link: http://sparanoid.com/donate/
+Donate link: https://sparanoid.com/donate/
 Tags: comments, content, chinese, china, copywriting
 Requires at least: 3.5.1
-Tested up to: 4.7
-Stable tag: 1.0.15
+Tested up to: 4.8.3
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,10 @@ Yep.
 
 == Changelog ==
 
+= 1.1.0 =
+* Fix: missing space for percentage sign
+* Fix: unwanted space after special ampersand characters
+
 = 1.0.15 =
 * Update assets.
 
@@ -133,6 +137,9 @@ Yep.
 * First release
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+* Fix: missing space for percentage sign and unwanted space after special ampersand characters
 
 = 1.0.15 =
 * Update assets.

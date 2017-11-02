@@ -3,14 +3,14 @@
  * @package   Space_Lover
  * @author    Tunghsiao Liu <t@sparanoid.com>
  * @license   GPL-2.0+
- * @link      http://sparanoid.com/
+ * @link      https://sparanoid.com/
  * @copyright Sparanoid
  *
  * @wordpress-plugin
  * Plugin Name:       Space Lover
- * Plugin URI:        http://sparanoid.com/work/space-lover/
+ * Plugin URI:        https://sparanoid.com/work/space-lover/
  * Description:       Magically add an extra space between Chinese characters and English letters / numbers / common punctuation marks
- * Version:           1.0.15
+ * Version:           1.1.0
  * Author:            Tunghsiao Liu
  * Author URI:        http://sparanoid.com/
  * Text Domain:       space-lover
@@ -50,13 +50,25 @@ $sl_work_tags = array(
 // http://regex101.com/r/yW0nZ7/1
 function space_lover_prepare($content) {
   // $content = strip_tags($content);
+
+  // Space for opneing (Ps) and closing (Pe) punctuations
   $content = preg_replace('~(\p{Han})([a-zA-Z0-9\p{Ps}])(?![^<]*>)~u', '\1 \2', $content);
   $content = preg_replace('~([a-zA-Z0-9\p{Pe}])(\p{Han})(?![^<]*>)~u', '\1 \2', $content);
-  $content = preg_replace('~([!?‽:;,.])(\p{Han})~u', '\1 \2', $content);
+
+  // Space for general punctuations
+  $content = preg_replace('~([!?‽:;,.%])(\p{Han})~u', '\1 \2', $content);
+
+  // Space fix for 'ampersand' character https://regex101.com/r/hU3wD2/13
+  // Sometimes WordPress generated output contains characters like `&#038;`.
+  // This causes unwanted additional space from the above rule.
+  $content = preg_replace('~(&#?[a-z0-9]+;?[a-z0-9]+;) (\p{Han})(?![^<]*>)~u', '\1\2', $content);
+
+  // Space for HTML tags
   $content = preg_replace('~(\p{Han})(<[a-zA-Z]+?.*?>)~u', '\1 \2', $content);
   $content = preg_replace('~(\p{Han})(<\/[a-zA-Z]+>)~u', '\1\2 ', $content);
   $content = preg_replace('~(<\/[a-zA-Z]+>)(\p{Han})~u', '\1 \2', $content);
   $content = preg_replace('~(<[a-zA-Z]+?.*?>)(\p{Han})~u', ' \1\2', $content);
+
   // $content = preg_replace('~\![ ]?(\p{Han})~u', '！\1', $content);
   // $content = preg_replace('~\:[ ]?(\p{Han})~u', '：\1', $content);
   // $content = preg_replace('~\;[ ]?(\p{Han})~u', '；\1', $content);
@@ -66,6 +78,8 @@ function space_lover_prepare($content) {
   // $content = preg_replace('~\+[ ]?(\p{Han})~u', '＋\1', $content);
   // $content = preg_replace('~\=[ ]?(\p{Han})~u', '＝\1', $content);
   // $content = preg_replace('~\&[ ]?(\p{Han})~u', '＆\1', $content);
+
+  // Special characters fix for Chinese Ps/Pe categories
   $content = preg_replace('~[ ]*([「」『』（）〈〉《》【】〔〕〖〗〘〙〚〛])[ ]*~u', '\1', $content);
   return $content;
 }
