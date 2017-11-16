@@ -3,7 +3,7 @@ Contributors: Sparanoid
 Donate link: https://sparanoid.com/donate/
 Tags: comments, content, chinese, china, copywriting
 Requires at least: 3.5.1
-Tested up to: 4.8.3
+Tested up to: 4.9
 Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -84,6 +84,10 @@ Yep.
 
 == Changelog ==
 
+= 1.1.1 =
+* Feature: refine ampersand characters fix
+* Compatibility check for 4.9
+
 = 1.1.0 =
 * Fix: missing space for percentage sign
 * Fix: unwanted space after special ampersand characters
@@ -137,6 +141,9 @@ Yep.
 * First release
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+* Feature: refine ampersand characters fix
 
 = 1.1.0 =
 * Fix: missing space for percentage sign and unwanted space after special ampersand characters
