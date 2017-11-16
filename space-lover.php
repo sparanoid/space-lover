@@ -61,7 +61,10 @@ function space_lover_prepare($content) {
   // Space fix for 'ampersand' character https://regex101.com/r/hU3wD2/13
   // Sometimes WordPress generated output contains characters like `&#038;`.
   // This causes unwanted additional space from the above rule.
-  $content = preg_replace('~(&#?[a-z0-9]+;?[a-z0-9]+;) (\p{Han})(?![^<]*>)~u', '\1\2', $content);
+  //
+  // https://regex101.com/r/hU3wD2/13 - original HTML entities method
+  // https://regex101.com/r/hU3wD2/14 - refined ampersand method
+  $content = preg_replace('~(&amp;?(?:amp)?;) (\p{Han})(?![^<]*>)~u', '\1\2', $content);
 
   // Space for HTML tags
   $content = preg_replace('~(\p{Han})(<[a-zA-Z]+?.*?>)~u', '\1 \2', $content);
