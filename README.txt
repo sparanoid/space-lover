@@ -3,8 +3,8 @@ Contributors: Sparanoid
 Donate link: https://sparanoid.com/donate/
 Tags: comments, content, chinese, china, copywriting
 Requires at least: 3.5.1
-Tested up to: 4.9
-Stable tag: 1.1.1
+Tested up to: 5.0
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,10 @@ Yep.
 
 == Changelog ==
 
+= 1.1.2 =
+* Fix: unwanted space between ruby tags, props John Shen
+* Compatibility check for 5.0
+
 = 1.1.1 =
 * Feature: refine ampersand characters fix
 * Compatibility check for 4.9
@@ -141,6 +145,9 @@ Yep.
 * First release
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+* Fix: unwanted space between ruby tags, props John Shen
 
 = 1.1.1 =
 * Feature: refine ampersand characters fix
