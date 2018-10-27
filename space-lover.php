@@ -46,7 +46,6 @@ $sl_work_tags = array(
 // https://github.com/sparanoid/chinese-copywriting-guidelines
 // https://github.com/huacnlee/auto-correct
 // http://stackoverflow.com/questions/12493128/
-// http://regex101.com/r/hU3wD2/6
 // http://regex101.com/r/yW0nZ7/1
 function space_lover_prepare($content) {
   // $content = strip_tags($content);
@@ -67,10 +66,11 @@ function space_lover_prepare($content) {
   $content = preg_replace('~(&amp;?(?:amp)?;) (\p{Han})(?![^<]*>)~u', '\1\2', $content);
 
   // Space for HTML tags
-  $content = preg_replace('~(\p{Han})(<[a-zA-Z]+?.*?>)~u', '\1 \2', $content);
-  $content = preg_replace('~(\p{Han})(<\/[a-zA-Z]+>)~u', '\1\2 ', $content);
-  $content = preg_replace('~(<\/[a-zA-Z]+>)(\p{Han})~u', '\1 \2', $content);
-  $content = preg_replace('~(<[a-zA-Z]+?.*?>)(\p{Han})~u', ' \1\2', $content);
+  // https://regex101.com/r/hU3wD2/21
+  $content = preg_replace('~(\p{Han})(<(?!ruby)[a-zA-Z]+?[^>]*?>)([^\p{Han}])~u', '\1 \2\3', $content);
+  $content = preg_replace('~(\p{Han})(<\/(?!ruby)[a-zA-Z]+>)([^\p{Han}])~u', '\1\2 \3', $content);
+  $content = preg_replace('~([^\p{Han}])(<(?!ruby)[a-zA-Z]+?[^>]*?>)(\p{Han})~u', '\1 \2\3', $content);
+  $content = preg_replace('~([^\p{Han}])(<\/(?!ruby)[a-zA-Z]+>)(\p{Han})~u', '\1\2 \3', $content);
 
   // $content = preg_replace('~\![ ]?(\p{Han})~u', '！\1', $content);
   // $content = preg_replace('~\:[ ]?(\p{Han})~u', '：\1', $content);
