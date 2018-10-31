@@ -51,8 +51,8 @@ function space_lover_prepare($content) {
   // $content = strip_tags($content);
 
   // Space for opneing (Ps) and closing (Pe) punctuations
-  $content = preg_replace('~(\p{Han})([a-zA-Z0-9\p{Ps}])(?![^<]*>)~u', '\1 \2', $content);
-  $content = preg_replace('~([a-zA-Z0-9\p{Pe}])(\p{Han})(?![^<]*>)~u', '\1 \2', $content);
+  $content = preg_replace('~(\p{Han})([a-zA-Z0-9\p{Ps}\p{Pi}])(?![^<]*>)~u', '\1 \2', $content);
+  $content = preg_replace('~([a-zA-Z0-9\p{Pe}\p{Pf}])(\p{Han})(?![^<]*>)~u', '\1 \2', $content);
 
   // Space for general punctuations
   $content = preg_replace('~([!?‽:;,.%])(\p{Han})~u', '\1 \2', $content);
@@ -66,11 +66,11 @@ function space_lover_prepare($content) {
   $content = preg_replace('~(&amp;?(?:amp)?;) (\p{Han})(?![^<]*>)~u', '\1\2', $content);
 
   // Space for HTML tags
-  // https://regex101.com/r/hU3wD2/21
-  $content = preg_replace('~(\p{Han})(<(?!ruby)[a-zA-Z]+?[^>]*?>)([^\p{Han}])~u', '\1 \2\3', $content);
-  $content = preg_replace('~(\p{Han})(<\/(?!ruby)[a-zA-Z]+>)([^\p{Han}])~u', '\1\2 \3', $content);
-  $content = preg_replace('~([^\p{Han}])(<(?!ruby)[a-zA-Z]+?[^>]*?>)(\p{Han})~u', '\1 \2\3', $content);
-  $content = preg_replace('~([^\p{Han}])(<\/(?!ruby)[a-zA-Z]+>)(\p{Han})~u', '\1\2 \3', $content);
+  // https://regex101.com/r/hU3wD2/22
+  $content = preg_replace('~(\p{Han})(<(?!ruby)[a-zA-Z]+?[^>]*?>)([a-zA-Z0-9\p{Ps}\p{Pi}])~u', '\1 \2\3', $content);
+  $content = preg_replace('~(\p{Han})(<\/(?!ruby)[a-zA-Z]+>)([a-zA-Z0-9\p{Pe}\p{Pf}])~u', '\1\2 \3', $content);
+  $content = preg_replace('~([a-zA-Z0-9\p{Pe}\p{Pf}])(<(?!ruby)[a-zA-Z]+?[^>]*?>)(\p{Han})~u', '\1 \2\3', $content);
+  $content = preg_replace('~([a-zA-Z0-9\p{Ps}\p{Pi}])(<\/(?!ruby)[a-zA-Z]+>)(\p{Han})~u', '\1\2 \3', $content);
 
   // $content = preg_replace('~\![ ]?(\p{Han})~u', '！\1', $content);
   // $content = preg_replace('~\:[ ]?(\p{Han})~u', '：\1', $content);
