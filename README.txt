@@ -4,7 +4,7 @@ Donate link: https://sparanoid.com/donate/
 Tags: comments, content, chinese, china, copywriting
 Requires at least: 3.5.1
 Tested up to: 5.0
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,9 @@ Yep.
 
 == Changelog ==
 
+= 1.1.3 =
+* Fix: unwatned space between general punctuations introduced from the last commit
+
 = 1.1.2 =
 * Fix: unwanted space between ruby tags, props John Shen
 * Compatibility check for 5.0
@@ -145,6 +148,9 @@ Yep.
 * First release
 
 == Upgrade Notice ==
+
+= 1.1.3 =
+* Fix: unwatned space between general punctuations introduced from the last commit
 
 = 1.1.2 =
 * Fix: unwanted space between ruby tags, props John Shen
