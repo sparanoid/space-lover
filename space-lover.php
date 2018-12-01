@@ -56,6 +56,7 @@ function space_lover_prepare($content) {
 
   // Space for general punctuations
   $content = preg_replace('~([!?‽:;,.%])(\p{Han})~u', '\1 \2', $content);
+  $content = preg_replace('~(\p{Han})([@$#])~u', '\1 \2', $content);
 
   // Space fix for 'ampersand' character https://regex101.com/r/hU3wD2/13
   // Sometimes WordPress generated output contains characters like `&#038;`.
@@ -67,10 +68,10 @@ function space_lover_prepare($content) {
 
   // Space for HTML tags
   // https://regex101.com/r/hU3wD2/22
-  $content = preg_replace('~(\p{Han})(<(?!ruby)[a-zA-Z]+?[^>]*?>)([a-zA-Z0-9\p{Ps}\p{Pi}])~u', '\1 \2\3', $content);
-  $content = preg_replace('~(\p{Han})(<\/(?!ruby)[a-zA-Z]+>)([a-zA-Z0-9\p{Pe}\p{Pf}])~u', '\1\2 \3', $content);
-  $content = preg_replace('~([a-zA-Z0-9\p{Pe}\p{Pf}])(<(?!ruby)[a-zA-Z]+?[^>]*?>)(\p{Han})~u', '\1 \2\3', $content);
-  $content = preg_replace('~([a-zA-Z0-9\p{Ps}\p{Pi}])(<\/(?!ruby)[a-zA-Z]+>)(\p{Han})~u', '\1\2 \3', $content);
+  $content = preg_replace('~(\p{Han})(<(?!ruby)[a-zA-Z]+?[^>]*?>)([a-zA-Z0-9\p{Ps}\p{Pi}@$#])~u', '\1 \2\3', $content);
+  $content = preg_replace('~(\p{Han})(<\/(?!ruby)[a-zA-Z]+>)([a-zA-Z0-9\p{Pe}\p{Pf}@$#])~u', '\1\2 \3', $content);
+  $content = preg_replace('~([a-zA-Z0-9\p{Pe}\p{Pf}!?‽:;,.%])(<(?!ruby)[a-zA-Z]+?[^>]*?>)(\p{Han})~u', '\1 \2\3', $content);
+  $content = preg_replace('~([a-zA-Z0-9\p{Ps}\p{Pi}!?‽:;,.%])(<\/(?!ruby)[a-zA-Z]+>)(\p{Han})~u', '\1\2 \3', $content);
 
   // $content = preg_replace('~\![ ]?(\p{Han})~u', '！\1', $content);
   // $content = preg_replace('~\:[ ]?(\p{Han})~u', '：\1', $content);
@@ -90,4 +91,3 @@ function space_lover_prepare($content) {
 foreach ( $sl_work_tags as $sl_work_tag ) {
   add_filter($sl_work_tag, 'space_lover_prepare');
 }
-?>
