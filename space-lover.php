@@ -67,10 +67,22 @@ function space_lover_prepare($content) {
   $content = preg_replace('~(&amp;?(?:amp)?;) (\p{Han})(?![^<]*>)~u', '\1\2', $content);
 
   // Space for HTML tags
-  // https://regex101.com/r/hU3wD2/22
+  // https://regex101.com/r/hU3wD2/25
+
+  // {中文}<tag>{英文/数字/起始标点/特殊符号}
+  // 一台<a href="#">“Makerbot,二代”</a>3D打印机
   $content = preg_replace('~(\p{Han})(<(?!ruby)[a-zA-Z]+?[^>]*?>)([a-zA-Z0-9\p{Ps}\p{Pi}@$#])~u', '\1 \2\3', $content);
-  $content = preg_replace('~(\p{Han})(<\/(?!ruby)[a-zA-Z]+>)([a-zA-Z0-9\p{Pe}\p{Pf}@$#])~u', '\1\2 \3', $content);
+
+  // {中文}</tag>{英文/数字}
+  // <code>Makerbot二代</code>3D打印机
+  $content = preg_replace('~(\p{Han})(<\/(?!ruby)[a-zA-Z]+>)([a-zA-Z0-9])~u', '\1\2 \3', $content);
+
+  // {英文/数字/闭合标点/特殊符号}<tag>{中文}
+  // 买了一台Makerbot,<a href="#">二代3D</a>打印机
   $content = preg_replace('~([a-zA-Z0-9\p{Pe}\p{Pf}!?‽:;,.%])(<(?!ruby)[a-zA-Z]+?[^>]*?>)(\p{Han})~u', '\1 \2\3', $content);
+
+  // {英文/数字/起始标点/特殊符号}</tag>{中文}
+  // 买了一台Makerbot,<a href="#">二代3D</a>打印机
   $content = preg_replace('~([a-zA-Z0-9\p{Ps}\p{Pi}!?‽:;,.%])(<\/(?!ruby)[a-zA-Z]+>)(\p{Han})~u', '\1\2 \3', $content);
 
   // $content = preg_replace('~\![ ]?(\p{Han})~u', '！\1', $content);
